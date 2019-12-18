@@ -10,7 +10,7 @@ class ProstageController extends AbstractController
 
     public function index()
     {
-        return $this->render('prostage/index.html.twig');
+        return $this->render('prostage/accueil.html.twig');
     }
     /**
     * @Route("/entreprises", name="Prostages_entreprises")
