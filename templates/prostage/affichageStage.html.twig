@@ -1,4 +1,27 @@
 {% extends 'base.html.twig' %}
 {% block contenu %}
-<h1>Cette page affichera le descriptif du stage ayant pour identifiant {{id}} </h1>
+<div class="card text-center">
+
+  <div class="card-body">
+  <h5 class="card-title">{{stage.titre}}</h5>
+  <h6 class="card-subtitle mb-2 text-muted"> Proposé par: {{stage.Entreprise.nom}}</h6>
+  <p class="card-text"> {{stage.description}} </p>
+  <ul class="list-group list-group-flush">
+  <li class="list-group-item">Domaine: &nbsp; {{stage.domaine}} </li>
+  <li class="list-group-item">Formation concernée(s): {%for formationC  in stage.formations  %}
+  {{ formationC.nom }} &nbsp;
+  {% endfor %}
+  </li>
+  <li class="list-group-item">Contact: &nbsp; {{stage.email}} </li>
+    <li class="list-group-item">
+    Information sur l'entreprise &nbsp; {{stage.Entreprise.nom}}: <br>
+    Activité: &nbsp; {{stage.Entreprise.activite}}<br>
+    Site: &nbsp; {{stage.Entreprise.siteweb}}<br>
+    Adresse: &nbsp; {{stage.Entreprise.adresse}}<br>
+    </li>
+  </ul>
+
+
+  </div>
+</div>
 {% endblock %}

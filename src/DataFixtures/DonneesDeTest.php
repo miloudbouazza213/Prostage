@@ -32,7 +32,7 @@ class DonneesDeTest extends Fixture
 
         $tabformation = array($dutinfo,$dutgim,$lpinfo);
         //activite et domaine possible
-        $taActivite = array("aeronautique","commerce","jeux videos");
+        $tabActivite = array("aeronautique","commerce","jeux videos");
         $tabDomaine = array("web","reseau","mobile");
 
 
@@ -43,7 +43,7 @@ class DonneesDeTest extends Fixture
 
           $entreprise = new Entreprise();
           $entreprise->setNom($faker->company);
-          $entreprise->setActivite(rand(0,2));
+          $entreprise->setActivite($tabActivite[rand(0,2)]);
           $entreprise->setAdresse($faker->address);
           $entreprise->setSiteweb($faker->domainName);
           $manager->persist($entreprise);
@@ -52,7 +52,7 @@ class DonneesDeTest extends Fixture
           {
             $stage =new Stage();
             $stage->setTitre($faker->realText($maxNbChars = 50, $indexSize = 2));
-            $stage->setDomaine(rand(0,2));
+            $stage->setDomaine($tabDomaine[rand(0,2)]);
             $stage->setDescription($faker->realText($maxNbChars = 200, $indexSize = 2));
             $stage->setEmail($faker->email);
             $stage->setEntreprise($entreprise);
