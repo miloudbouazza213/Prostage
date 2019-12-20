@@ -1,5 +1,16 @@
-<!DOCTYPE html>
 {% extends 'base.html.twig' %}
 {% block contenu %}
-<h1>Cette page affichera la liste des formations de l'IUT</h1>
+<h1 style="text-align:center;color:RoyalBlue;font-size:2vw;">
+  Cliquer sur une formation pour filtrer <br></h1>
+
+{% for formationC in formations %}
+ <a  href="/formation/{{formationC.id}}">
+<button type="button"
+ class="btn btn-primary btn-lg btn-block my-2">
+ {{formationC.nom}}
+</button>
+</a>
+
+{% endfor %}
+
 {% endblock %}

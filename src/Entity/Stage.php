@@ -42,7 +42,7 @@ class Stage
      * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="stages")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Entreprise;
+    private $entreprise;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Formation", inversedBy="stages")
@@ -109,12 +109,12 @@ class Stage
 
     public function getEntreprise(): ?Entreprise
     {
-        return $this->Entreprise;
+        return $this->entreprise;
     }
 
     public function setEntreprise(?Entreprise $Entreprise): self
     {
-        $this->Entreprise = $Entreprise;
+        $this->entreprise = $Entreprise;
 
         return $this;
     }

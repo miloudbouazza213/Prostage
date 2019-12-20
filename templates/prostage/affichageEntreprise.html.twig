@@ -1,4 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block contenu %}
-<h1> Cette page affichera la liste des entreprises proposant un stage </h1>
+<h1 style="text-align:center;color:RoyalBlue;font-size:2vw;">
+  Cliquer sur une entreprise pour filtrer <br></h1>
+
+{% for entrepriseC in entreprises %}
+ <a  href="/entreprise/{{entrepriseC.id}}">
+<button type="button"
+ class="btn btn-primary btn-lg btn-block my-2">
+ {{entrepriseC.nom}}
+</button>
+</a>
+{% endfor %}
 {% endblock %}
