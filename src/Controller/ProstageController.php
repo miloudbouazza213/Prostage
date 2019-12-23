@@ -71,8 +71,17 @@ class ProstageController extends AbstractController
     */
     public function ListerStageFormation($id)
     {
-      $RepositoryStage=$this->getDoctrine()->getRepository(Stage::class);
-      $stages=$RepositoryStage->findByFormations($id);
-          return $this->render('prostage/StagesparFormation.html.twig',['stages' => $stages]);
+      $RepositoryFormation=$this->getDoctrine()->getRepository(Formation::class);
+      $formations=$RepositoryFormation->findAll();
+
+      foreach ($formations as $formationc)
+      {
+        if($formationc->getId() == $id)
+
+          $stages=$formationc->getStages();
+        }
+
+
+          return $this->render('prostage/StagesparFormation.html.twig', ['stages' => $stages ]);
     }
 }
